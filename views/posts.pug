@@ -45,7 +45,7 @@ script.
     if (confirm('本当に削除しますか?')) {
       fetch(`/posts/${id}/delete`, { method: 'POST' })
         .then(() => {
-          window.location.reload();
+          window.location.href = '/';
         });
     }
   }  
