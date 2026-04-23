@@ -1,0 +1,12 @@
+{
+  "name": "zen-board",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "pug": "^3.0.3",
+    "@prisma/client": "^5.10.0"
+  },
+  "devDependencies": {
+    "prisma": "^5.10.0"
+  }
+}

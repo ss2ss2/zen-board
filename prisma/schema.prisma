@@ -1,0 +1,14 @@
+datasource db {
+  provider = "postgresql" // データベースの種類
+  url      = env("DATABASE_URL") // 場所（パスワードなど）envから読み込む
+}
+
+generator client {
+  provider = "prisma-client-js" // ライブラリをどう作るか この書き方決まり
+}
+
+model Post {
+  id        Int      @id @default(autoincrement())
+  content   String
+  createdAt DateTime @default(now())
+}
