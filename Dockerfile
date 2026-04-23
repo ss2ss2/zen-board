@@ -5,4 +5,4 @@ COPY prisma ./prisma/
 RUN npm install
 COPY . .
 EXPOSE 8000
-CMD npx prisma generate && node index.js
+CMD npx prisma db push && npm start
