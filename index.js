@@ -75,8 +75,6 @@ const server = http.createServer(async (req, res) => {
   }
 }); // サーバー全体の閉じ
 
-// ※ ここにあった不要な app.post の塊を削除しました
-
 const port = 8000;
 server.listen(port, () => {
   console.info(`Listening on ${port}`);
