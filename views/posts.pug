@@ -26,7 +26,7 @@ html(lang="ja")
               input.form-control(name="title" required)
             div.mb-3 
               label.form-label 漢字の時：
-              input.form-control(name="kana" placeholder="先頭が漢字だったらひらがなを入れてね 例：せ" maxlength="1")
+              input.form-control(name="kana" placeholder="目次にある「あ・か・さ…」のどれか1文字を入れてね（濁音・カタカナ不可）" maxlength="1")
             div.mb-3 
               label.form-label 詳細：
               textarea.form-control(name="detail" rows=3 required)
@@ -36,7 +36,12 @@ html(lang="ja")
       
       h2.h4.mb-4 授業の記録一覧
       each post in posts
-        - const jumpId = (post.kana || (post.title ? post.title.charAt(0) : "")).toUpperCase()
+        - const firstChar  = (post.kana || (post.title ? post.title.charAt(0) : ""))
+        //- 行の頭の文字に変換してから、大文字にします rowMap:１番目と２番目を置き換える
+        - const rowMap = { 'あ':'あ','い':'あ','う':'あ','え':'あ','お':'あ','か':'か','き':'か','く':'か','け':'か','こ':'か','さ':'さ','し':'さ','す':'さ','せ':'さ','そ':'さ','ざ':'さ','じ':'さ','ず':'さ','ぜ':'さ','ぞ':'さ','た':'た','ち':'た','つ':'た','て':'た','と':'た','だ':'た','ぢ':'た','づ':'た','で':'た','ど':'た','な':'な','に':'な','ぬ':'な','ね':'な','の':'な','は':'は','ひ':'は','ふ':'は','へ':'は','ほ':'は','ば':'は','び':'は','ぶ':'は','べ':'は','ぼ':'は','ぱ':'は','ぴ':'は','ぷ':'は','ぺ':'は','ぽ':'は','ま':'ま','み':'ま','む':'ま','め':'ま','も':'ま','や':'や','ゆ':'や','よ':'や','ら':'ら','り':'ら','る':'ら','れ':'ら','ろ':'ら','わ':'わ' }
+        // あかさた..を引っ張り出してくるなかったらそのまま使用最後に大文字へ
+        - const jumpId = (rowMap[firstChar] || firstChar).toUpperCase()
+        
         div.card.mb-3.shadow-sm(id=jumpId)
           div.card-body
             h5.card-title #{post.title}
