@@ -25,6 +25,9 @@ html(lang="ja")
               label.form-label 題目：
               input.form-control(name="title" required)
             div.mb-3 
+              label.form-label 漢字の時：
+              input.form-control(name="kana" placeholder="先頭が漢字だったらひらがなを入れてね 例：せ" maxlength="1" required)
+            div.mb-3 
               label.form-label 詳細：
               textarea.form-control(name="detail" rows=3 required)
             button.btn.btn-success.w-100(type="submit") 登録する
@@ -33,7 +36,7 @@ html(lang="ja")
       
       h2.h4.mb-4 授業の記録一覧
       each post in posts
-        div.card.mb-3.shadow-sm(id=(post.content && post.content.charAt(1)))
+        div.card.mb-3.shadow-sm(id=(post.kana ? post.kana :(post.title && post.title.charAt(1))))
           div.card-body
             p.card-text(style="white-space:pre-wrap") #{post.content}
             div.text-end
