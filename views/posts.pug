@@ -12,10 +12,10 @@ html(lang="ja")
       div.index-links.mb-4
         strong ジャンプ：
         each char in ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
-          a(href=`#${char}`) [ #{char} ]
+          a.text-decoration-none(href=`#${char}`) [ #{char} ]
         span | 
         each kana in ['あ', 'か', 'さ', 'た', 'な', 'は', 'ま', 'や', 'ら', 'わ']
-          a(href=`#${kana}`) [ #{kana} ]
+          a.text-decoration-none(href=`#${kana}`) [ #{kana} ]
 
       .card.mb-5.shadow-sm
         div.card-body
