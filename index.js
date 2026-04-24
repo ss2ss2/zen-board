@@ -46,11 +46,15 @@ const server = http.createServer(async (req, res) => {
       const params = new URLSearchParams(body);
       const title = params.get('title');
       const detail = params.get('detail');
+      const kana = params.get('kana');
 
       if (title && detail) {
-        const combined = `[${title}] ${detail}`;
         await prisma.post.create({
-          data: { content: combined }
+          data: {
+            title: title,
+            content: detail,
+            kana: kana
+          }
         });
       }
       res.writeHead(303, { 'Location': '/posts' });

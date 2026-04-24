@@ -9,6 +9,8 @@ generator client {
 
 model Post {
   id        Int      @id @default(autoincrement())
+  title     String? //?はからでもOKの意味
   content   String
+  kana      String?
   createdAt DateTime @default(now())
 }
