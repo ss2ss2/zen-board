@@ -36,7 +36,7 @@ html(lang="ja")
       
       h2.h4.mb-4 授業の記録一覧
       each post in posts
-        - const jumpId = post.kana || (post.title ? post.title.charAt(1) : "")
+        - const jumpId = (post.kana || (post.title ? post.title.charAt(1) : "")).toUpperCase()
         div.card.mb-3.shadow-sm(id=jumpId)
           div.card-body
             h5.card-title #{post.title}

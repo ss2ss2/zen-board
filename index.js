@@ -63,7 +63,7 @@ const server = http.createServer(async (req, res) => {
   } else {
     // GET（表示処理）
     const posts = await prisma.post.findMany({
-      orderBy: { content: 'asc' }
+      orderBy: { title: 'asc' }
     });
 
     res.writeHead(200, { 'Content-Type': 'text/html; charset=utf-8' });
