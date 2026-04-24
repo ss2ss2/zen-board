@@ -36,7 +36,8 @@ html(lang="ja")
       
       h2.h4.mb-4 授業の記録一覧
       each post in posts
-        div.card.mb-3.shadow-sm(id=(post.kana ? post.kana :(post.title && post.title.charAt(1))))
+        - const currentId = post.kana ? post.kana : (post.title && post.title.charAt(1))
+        div.card.mb-3.shadow-sm(id=currentId)
           div.card-body
             p.card-text(style="white-space:pre-wrap") #{post.content}
             div.text-end
