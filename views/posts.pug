@@ -36,9 +36,10 @@ html(lang="ja")
       
       h2.h4.mb-4 授業の記録一覧
       each post in posts
-        - const currentId = post.kana ? post.kana : (post.title && post.title.charAt(1))
-        div.card.mb-3.shadow-sm(id=currentId)
+        - const jumpId = post.kana || (post.title && post.title.charAt(1))
+        div.card.mb-3.shadow-sm(id=jumpId)
           div.card-body
+            h5.card-title #{post.title}
             p.card-text(style="white-space:pre-wrap") #{post.content}
             div.text-end
               small.text-muted 投稿日時：#{new Date(post.createdAt).toLocaleString('ja-JP', { timeZone: 'Asia/Tokyo' })}
